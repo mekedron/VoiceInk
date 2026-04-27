@@ -49,7 +49,7 @@ struct LicenseManagementView: View {
                 }
                 
                 Text(licenseViewModel.licenseState == .licensed ?
-                     "Thank you for supporting VoiceInk" :
+                     "An incredible voice-to-text tool by an indie developer" :
                      "Transcribe what you say to text instantly with AI")
                     .font(.title3)
                     .foregroundStyle(.secondary)
@@ -217,59 +217,40 @@ struct LicenseManagementView: View {
     
     private var activatedContent: some View {
         VStack(spacing: 32) {
-            // Status Card
             VStack(spacing: 24) {
                 HStack {
-                    Image(systemName: "checkmark.circle.fill")
+                    Image(systemName: "heart.circle.fill")
                         .font(.system(size: 24))
-                        .foregroundStyle(.green)
-                    Text("License Active")
+                        .foregroundStyle(.pink)
+                    Text("Community Patched Build")
                         .font(.headline)
                     Spacer()
-                    Text("Active")
-                        .font(.caption)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 4)
-                        .background(Capsule().fill(.green))
-                        .foregroundStyle(.white)
                 }
-                
-                Divider()
-                
-                if licenseViewModel.activationsLimit > 0 {
-                    Text("This license can be activated on up to \(licenseViewModel.activationsLimit) devices")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                } else {
-                    Text("You can use VoiceInk Pro on all your personal devices")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .padding(32)
-            .background(CardBackground(isSelected: false))
-            .shadow(color: .black.opacity(0.05), radius: 10)
-            
-            // Deactivation Card
-            VStack(alignment: .leading, spacing: 16) {
-                Text("License Management")
-                    .font(.headline)
 
-                Button(role: .destructive, action: {
-                    licenseViewModel.removeLicense()
+                Divider()
+
+                Text("You\'re using an unofficial build of VoiceInk. This app is crafted by a solo indie developer who pours their heart into making voice-to-text effortless.\\n\\nIf VoiceInk has become part of your daily workflow, consider buying a license to support its continued development.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .lineSpacing(4)
+
+                Button(action: {
+                    if let url = URL(string: "https://tryvoiceink.com/") {
+                        NSWorkspace.shared.open(url)
+                    }
                 }) {
-                    Label("Deactivate License", systemImage: "xmark.circle.fill")
+                    Label("Get VoiceInk \u{2014} Support the Developer", systemImage: "cart.fill")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 8)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
             }
             .padding(32)
             .background(CardBackground(isSelected: false))
             .shadow(color: .black.opacity(0.05), radius: 10)
         }
     }
-    
+
     private func featureItem(icon: String, title: String, color: Color) -> some View {
         HStack(spacing: 8) {
             Image(systemName: icon)
