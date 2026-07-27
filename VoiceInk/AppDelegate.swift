@@ -13,6 +13,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             "🧭 Application finished launching. hasMenuBarManager=\((self.menuBarManager != nil), privacy: .public); activationPolicy=\(WindowDiagnostics.activationPolicyDescription(NSApplication.shared.activationPolicy()), privacy: .public); snapshot=\(WindowDiagnostics.windowSnapshot(), privacy: .public)"
         )
         menuBarManager?.applyActivationPolicy()
+        LaunchPermissionMonitor.shared.bootstrap()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {

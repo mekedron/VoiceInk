@@ -112,8 +112,44 @@ struct LicenseManagementView: View {
         .frame(maxWidth: .infinity, alignment: .topLeading)
     }
 
+    private var patchedBuildSupportCard: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack(spacing: 10) {
+                Image(systemName: "heart.circle.fill")
+                    .font(.system(size: 22))
+                    .foregroundStyle(.pink)
+                Text("Community Patched Build")
+                    .font(.headline)
+                Spacer()
+            }
+
+            Text("You are using an unofficial, community-patched build of VoiceInk, crafted by a solo indie developer who pours their heart into making voice-to-text effortless.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text("If VoiceInk is part of your daily workflow, consider buying a license to support its continued development.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Button {
+                openURL("https://tryvoiceink.com/")
+            } label: {
+                Label("Get VoiceInk — Support the Developer", systemImage: "cart.fill")
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 8)
+            }
+            .buttonStyle(.borderedProminent)
+        }
+        .padding(22)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(AppMaterialCardBackground(cornerRadius: 14))
+    }
+
     private var activeContent: some View {
         VStack(spacing: 14) {
+            patchedBuildSupportCard
             activeLicenseCard
             if let message = licenseViewModel.validationMessage {
                 ValidationMessage(

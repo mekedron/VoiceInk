@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+    <channel>
+        <title>VoiceInk</title>
+        <description>VoiceInk Patched Updates</description>
+        <language>en</language>
+        <item>
+            <title>Version v2.1-aa0db43-patched</title>
+            <pubDate>Mon, 27 Jul 2026 12:58:17 +0000</pubDate>
+            <enclosure
+                url="https://github.com/mekedron/PatchedVoiceInk/releases/download/v2.1-aa0db43-patched/VoiceInk-2.1-arm64.dmg"
+                sparkle:version="210.1"
+                sparkle:shortVersionString="2.1-patched"
+                sparkle:edSignature="BnhAvJTRUEzzXFjjPtMGLet6WQu7605WUGRb7iJjuKM9tML4c7Qb7aJtfTiCX9JA8u7mTLeBXHuC/Y8Fbsv1DA=="
+                length="34700012"
+                type="application/octet-stream" />
+        </item>
+    </channel>
+</rss>
